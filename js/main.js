@@ -23,7 +23,7 @@ function ocultarLucha (){
 
 let htmlPersonajes='';
 
-arrPersonajes.forEach(e => {
+arrPersonajes.forEach(e => {    
     htmlPersonajes= htmlPersonajes+`<div class="cuadroPersonaje"><div id="${e}"></div></div>`;
 });
 
