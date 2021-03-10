@@ -8,15 +8,15 @@ const zonaLucha=document.getElementById("zonaDeLucha");
 zonaLucha.style.display = "none";
 
 /**/
-function ocultarInicio (){
+let ocultarInicio = () => {
     zonaInicio.style.display = "none";
     zonaPersonaje.style.display = "block";
 }
-function ocultarSeleccion (){
+let ocultarSeleccion = () => {
     zonaPersonaje.style.display = "none";
     zonaLucha.style.display = "block";
 }
-function ocultarLucha (){
+let ocultarLucha = () => {
     zonaLucha.style.display = "none";
     zonaInicio.style.display = "block";
 }
@@ -24,7 +24,14 @@ function ocultarLucha (){
 let htmlPersonajes='';
 
 arrPersonajes.forEach(e => {    
-    htmlPersonajes= htmlPersonajes+`<div class="cuadroPersonaje"><div id="${e}"></div></div>`;
+    htmlPersonajes= 
+        htmlPersonajes+`<div id="${e}" onclick='seleccionarPersonaje(this)' class="cuadroPersonaje">
+        <div id="img${e}"></div></div>`;
 });
 
 document.getElementById("slotsPersonajes").innerHTML=htmlPersonajes;
+
+let seleccionarPersonaje= figura=>{
+    // element.classList.add("mystyle");
+    
+}
