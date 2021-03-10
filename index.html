@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link href="css/styles.css" rel="stylesheet">
+</head>
+<body>
+    <!--Pantalla de Inicio-->
+    <div id="zonaBienvenida" class="contenedor-bienvenida">
+        <div class="mensaje-bienvenida">
+            <span>Bienvenido a guerras geométricas</span>
+        </div>
+        <div class="boton-Start">
+            <span id="btnComenzar" onclick="ocultarInicio();">Comenzar</span>
+        </div>
+    </div>
+    <!--Pantalla de personajes-->
+    <div id="zonaPersonaje" class="contenerdor-seleccionPersonaje">
+        <div id="slotsPersonajes"></div>
+        <div class="boton-Pelear">
+            <span id="btnPelear" onclick="ocultarSeleccion();">Pelear</span>
+        </div>
+    </div>
+    <!--Pantalla de Lucha-->
+    <div id="zonaDeLucha" class="contenedor-pelea">
+        <div class="boton-Volver">
+            <span id="btnVolver" onclick="ocultarLucha();">Volver</span>
+        </div>
+    </div>
+
+
+    <script src="js/main.js"></script>
+</body>
+</html>

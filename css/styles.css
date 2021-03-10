@@ -1,0 +1,68 @@
+#btnComenzar{
+    font-weight: bold;
+    cursor:pointer;
+}
+#btnPelear{
+    font-weight: bold;
+    cursor:pointer;
+}
+#btnVolver{
+    font-weight: bold;
+    cursor:pointer;
+}
+.contenedor-bienvenida{
+    width: 50em;
+    height: 50em;
+    background-color: red;
+}
+.contenerdor-seleccionPersonaje{
+    width: 50em;
+    height: 50em;
+    background-color: aqua;
+}
+.contenedor-pelea{    
+    width: 50em;
+    height: 50em;
+    background-color: green;
+}
+.cuadroPersonaje{
+    width: 5em;
+    height: 5em;
+    background-color: blue;
+    margin: 0.1em;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+.cuadroPersonaje:hover{
+    width: 5.1em;
+    height: 5.1em;
+    background-color: black;
+    margin: 0.1em;
+}
+#linea{
+    height: 4em;
+    width: 0.4em;
+    background-color: black;
+}
+#triangulo{
+    height: 0;
+    width: 0;
+    border-bottom: black 4em solid;
+    border-right: black 4em transparent;
+    border-left: black 4em transparent;
+
+}
+#cuadrado{
+
+}
+#pentagono{
+
+}
+#hexagono{
+
+}
+#circulo{
+
+}
