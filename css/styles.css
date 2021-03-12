@@ -46,6 +46,11 @@
     width: 0.4em;
     background-color: black;
 }
+.imglinea-grande{
+    height: 8em;
+    width: 0.8em;
+    background-color: black;
+}
 #imgtriangulo{
     height: 0;
     width: 0;
@@ -53,15 +58,34 @@
     border-right: 1.5em solid transparent;
     border-bottom: 3em black  solid;
 }
+.imgtriangulo-grande{
+    height: 0;
+    width: 0;
+    border-left: 3em solid transparent;
+    border-right: 3em solid transparent;
+    border-bottom: 6em black  solid;
+}
 #imgcuadrado{
     height: 3em;
     width: 3em;
+    background-color: black;
+}
+.imgcuadrado-grande{
+    height: 6em;
+    width: 6em;
     background-color: black;
 }
 #imgpentagono{
     position: relative;
     width: 1.7em;
     border-width: 1.7em 0.7em 0;
+    border-style: solid;
+    border-color: black transparent;
+}
+.imgpentagono-grande{
+    position: relative;
+    width: 3.4em;
+    border-width: 3.4em 1.4em 0;
     border-style: solid;
     border-color: black transparent;
 }
@@ -76,10 +100,27 @@
     border-style: solid;
     border-color: transparent transparent black;
 }
+.imgpentagono-grande:before {
+    content: "";
+    position: absolute;
+    height: 0;
+    width: 0;
+    top: -5.4em;
+    left: -1.4em;
+    border-width: 0 3.1em 2em;
+    border-style: solid;
+    border-color: transparent transparent black;
+}
 
 #imghexagono{
     width: 4em;
     height: 2.1em;
+    background: black;
+    position: relative;
+}
+.imghexagono-grande{
+    width: 8em;
+    height: 4.2em;
     background: black;
     position: relative;
 }
@@ -94,6 +135,17 @@
     border-style: solid;
     border-color: transparent transparent black;
 }
+.imghexagono-grande:before {
+    content: "";
+    position: absolute;
+    top: -2em;
+    left: 0;
+    width: 0;
+    height: 0;
+    border-width: 0 4em 2em;
+    border-style: solid;
+    border-color: transparent transparent black;
+}
 #imghexagono:after {
     content: "";
     position: absolute;
@@ -105,9 +157,26 @@
     border-style: solid;
     border-color: black transparent transparent;
 }
+.imghexagono-grande:after {
+    content: "";
+    position: absolute;
+    bottom: -2em;
+    left: 0;
+    width: 0;
+    height: 0;
+    border-width: 2em 4em 0;
+    border-style: solid;
+    border-color: black transparent transparent;
+}
 #imgcirculo{
     height: 3em;
     width: 3em;
+    border-radius: 50%;
+    background-color: black;
+}
+.imgcirculo-grande{
+    height: 6em;
+    width: 6em;
     border-radius: 50%;
     background-color: black;
 }

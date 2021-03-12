@@ -25,13 +25,29 @@ let htmlPersonajes='';
 
 arrPersonajes.forEach(e => {    
     htmlPersonajes= 
-        htmlPersonajes+`<div id="${e}" onclick='seleccionarPersonaje(this)' class="cuadroPersonaje">
+        htmlPersonajes+`<div id="${e}" onclick='seleccionarPersonaje(this)' class='cuadroPersonaje'>
         <div id="img${e}"></div></div>`;
 });
 
 document.getElementById("slotsPersonajes").innerHTML=htmlPersonajes;
 
 let seleccionarPersonaje= figura=>{
+    let primerJugador=document.getElementById('primerPlayer');
+    let segundoJugador=document.getElementById('segundoPlayer');
+    let clase='img'+figura.id+'-grande';
+    let html=`<div class='${clase}'></div>`
+    if(primerJugador.innerHTML==''){
+        primerJugador.innerHTML=html;
+    }
+    else if(segundoJugador.innerHTML==''){
+        segundoJugador.innerHTML=html;
+        //TODO
+        //activar boton pelear y desactivar seleccion de personajes
+    }
+    else{
+        console.log('algo a ido mal');
+    }
+    //activa el paso a pelea en cuando hayan dos personajes clicados
     // element.classList.add("mystyle");
     
 }
