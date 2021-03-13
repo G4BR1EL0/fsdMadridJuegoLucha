@@ -7,19 +7,27 @@ zonaPersonaje.style.display = "none";
 const zonaLucha=document.getElementById("zonaDeLucha");
 zonaLucha.style.display = "none";
 
-/**/
+/*funciones cambio de pantalla*/
+
+//#region cambioPantalla
 let ocultarInicio = () => {
     zonaInicio.style.display = "none";
     zonaPersonaje.style.display = "block";
 }
 let ocultarSeleccion = () => {
-    zonaPersonaje.style.display = "none";
-    zonaLucha.style.display = "block";
+    let primerJugador=document.getElementById('primerPlayer');
+    let segundoJugador=document.getElementById('segundoPlayer');
+    if(primerJugador.innerHTML!=='' && segundoJugador.innerHTML!=''){
+        zonaPersonaje.style.display = "none";
+        zonaLucha.style.display = "block";
+        document.getElementById('cuadroLucha').innerHTML=primerJugador.innerHTML+segundoJugador.innerHTML;        
+    }    
 }
 let ocultarLucha = () => {
     zonaLucha.style.display = "none";
     zonaInicio.style.display = "block";
 }
+//#endregion
 
 let htmlPersonajes='';
 
