@@ -1,12 +1,7 @@
+/*Pantalla Inicio*/
+/*#region PantallaInicio*/
+
 #btnComenzar{
-    font-weight: bold;
-    cursor:pointer;
-}
-#btnPelear{
-    font-weight: bold;
-    cursor:pointer;
-}
-#btnVolver{
     font-weight: bold;
     cursor:pointer;
 }
@@ -15,15 +10,20 @@
     height: 50em;
     background-color: red;
 }
+
+/*#endregion*/
+
+/*Pantalla Seleccion Personaje*/
+/*#region PantallaSeleccion*/
+
 .contenerdor-seleccionPersonaje{
     width: 50em;
     height: 50em;
     background-color: aqua;
 }
-.contenedor-pelea{    
-    width: 50em;
-    height: 50em;
-    background-color: green;
+#btnPelear{
+    font-weight: bold;
+    cursor:pointer;
 }
 .cuadroPersonaje{
     width: 5em;
@@ -111,7 +111,6 @@
     border-style: solid;
     border-color: transparent transparent black;
 }
-
 #imghexagono{
     width: 4em;
     height: 2.1em;
@@ -180,3 +179,19 @@
     border-radius: 50%;
     background-color: black;
 }
+/*#endregion*/
+
+/*Pantalla Lucha*/
+/*#region PantallaLucha*/
+
+#btnVolver{
+    font-weight: bold;
+    cursor:pointer;
+}
+.contenedor-pelea{    
+    width: 50em;
+    height: 50em;
+    background-color: green;
+}
+
+/*#endregion*/
