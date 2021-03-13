@@ -193,5 +193,26 @@
     height: 50em;
     background-color: green;
 }
-
+#barraVidaPrimerPlayer{
+    width: 10em;
+    height: 2em;
+    margin: 0.1em;
+    background-color: greenyellow;
+    display: flex;
+    flex-direction: row;
+}
+#barraVidaSegundoPlayer{
+    width: 10em;
+    height: 2em;
+    margin: 0.1em;
+    background-color: greenyellow;
+    display: flex;
+    flex-direction: row;
+}
+.hitPoint{
+    width: 0.8em;
+    height: 1.8em;
+    margin: 0.1em;
+    background-color: grey;
+}
 /*#endregion*/
