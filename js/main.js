@@ -9,9 +9,11 @@ const PLAYER2=2;
 
 const zonaInicio=document.getElementById("zonaBienvenida");
 const zonaPersonaje=document.getElementById("zonaPersonaje");
-zonaPersonaje.style.display = "none";
+zonaPersonaje.style.display = 'none';
 const zonaLucha=document.getElementById("zonaDeLucha");
-zonaLucha.style.display = "none";
+zonaLucha.style.display = 'none';
+let btnDos = document.getElementById('btnAtacar2');
+btnDos.style.display='none';
 
 
 /*funciones cambio de pantalla*/
@@ -69,9 +71,9 @@ let seleccionarPersonaje= figura=>{
     
 }
 
-let calcularVidas= (attack,player)=>{
-    if(player===1){
-        if(attack===1){
+let calcularVidas = (attack,player) => {
+    if(player === 1){
+        if(attack === 1){
             vidaSegundoPlayer--;
             dibujarVida(vidaSegundoPlayer,player);
         }
@@ -80,7 +82,7 @@ let calcularVidas= (attack,player)=>{
         }
     }
     else{
-        if(attack===1){
+        if(attack === 1){
             vidaPrimerPlayer--;
             dibujarVida(vidaPrimerPlayer,player);
         }
@@ -91,7 +93,6 @@ let calcularVidas= (attack,player)=>{
 }
 let dibujarVida = (vida,player) => {    
     if(vida>0){
-
         let barraVida;
         if(player!=PLAYER1){
             barraVida=document.getElementById('barraVidaPrimerPlayer');
@@ -101,7 +102,7 @@ let dibujarVida = (vida,player) => {
         }
 
         let html='';
-        for(let i=0;i<=vida;i++){
+        for(let i = 0; i < vida; i++){
             html += `<div class='hitPoint'></div>`;
         }
         barraVida.innerHTML=html;
@@ -111,3 +112,14 @@ let dibujarVida = (vida,player) => {
         //fin de juego
     }
 }
+let ocultarBoton = () => {
+    let btnUno = document.getElementById('btnAtacar1');
+    let btnDos = document.getElementById('btnAtacar2');
+    if (btnUno.style.display === 'none'){
+        btnUno.style.display= 'flex';
+        btnDos.style.display= 'none';
+    }else{
+        btnUno.style.display= 'none';
+        btnDos.style.display= 'flex';
+    }
+} 

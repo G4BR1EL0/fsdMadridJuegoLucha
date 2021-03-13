@@ -215,4 +215,28 @@
     margin: 0.1em;
     background-color: grey;
 }
+#btnAtacar1{
+    width: 10em;
+    height: 4em;
+    background-color: red;
+    font-weight: bolder;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    cursor: pointer;
+    margin: 0.1em;
+}
+#btnAtacar2{
+    width: 10em;
+    height: 4em;
+    background-color: blue;
+    font-weight: bolder;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    cursor: pointer;
+    margin: 0.1em;
+}
 /*#endregion*/
