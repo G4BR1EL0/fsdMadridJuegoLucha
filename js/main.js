@@ -12,6 +12,8 @@ const zonaPersonaje=document.getElementById("zonaPersonaje");
 zonaPersonaje.style.display = 'none';
 const zonaLucha=document.getElementById("zonaDeLucha");
 zonaLucha.style.display = 'none';
+const zonaVictoria=document.getElementById("zonaVictoria");
+zonaVictoria.style.display = 'none';
 let btnDos = document.getElementById('btnAtacar2');
 btnDos.style.display='none';
 
@@ -27,16 +29,20 @@ let ocultarSeleccion = () => {
     let primerJugador=document.getElementById('primerPlayer');
     let segundoJugador=document.getElementById('segundoPlayer');
     if(primerJugador.innerHTML!=='' && segundoJugador.innerHTML!=''){
-        zonaPersonaje.style.display = "none";
-        zonaLucha.style.display = "block";
+        zonaPersonaje.style.display = 'none';
+        zonaLucha.style.display = 'block';
         document.getElementById('cuadroLucha').innerHTML=primerJugador.innerHTML+segundoJugador.innerHTML;    
         dibujarVida(MAXVIDA,PLAYER1);    
         dibujarVida(MAXVIDA,PLAYER2);    
     }    
 }
-let ocultarLucha = () => {
-    zonaLucha.style.display = "none";
-    zonaInicio.style.display = "block";
+let ocultarLucha = (player) => {
+    zonaLucha.style.display = 'none';
+    zonaVictoria.style.display = 'block';
+    document.getElementById('mensajeVictoria').innerHTML=`A ganado el Player${player}`;
+}
+let volverInicio = () => {
+
 }
 //#endregion
 
@@ -108,7 +114,7 @@ let dibujarVida = (vida,player) => {
         barraVida.innerHTML=html;
     }
     else{
-        console.log('finnnn');
+        ocultarLucha(player);
         //fin de juego
     }
 }

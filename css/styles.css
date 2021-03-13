@@ -184,10 +184,6 @@
 /*Pantalla Lucha*/
 /*#region PantallaLucha*/
 
-#btnVolver{
-    font-weight: bold;
-    cursor:pointer;
-}
 .contenedor-pelea{    
     width: 50em;
     height: 50em;
@@ -238,5 +234,29 @@
     align-items: center;
     cursor: pointer;
     margin: 0.1em;
+}
+/*#endregion*/
+
+/*Pantalla Victoria*/
+/*#region PantallaVictoria*/
+
+.contenedor-victoria{
+    width: 50em;
+    height: 50em;
+    background-color: yellow;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+.mensajeGanador{
+    font-weight: bolder;
+    font-size: 4em;
+}
+#btnVolver{
+    height: 10em;
+    width: 10em;
+    background-color: azure;
+    color: black;
 }
 /*#endregion*/
