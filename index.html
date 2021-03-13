@@ -9,42 +9,46 @@
     <link href="css/styles.css" rel="stylesheet">
 </head>
 <body>
-    <!--Pantalla de Inicio-->
-    <div id="zonaBienvenida" class="contenedor-bienvenida">
-        <div class="mensaje-bienvenida">
-            <span>Bienvenido a guerras geométricas</span>
+    <div class="contenedor">
+        <!--Pantalla de Inicio-->
+        <div id="zonaBienvenida" class="contenedor-bienvenida">
+            <div class="mensaje-bienvenida">
+                <span>Bienvenido a guerras geométricas</span>
+            </div>
+            <div class="boton-Start">
+                <span id="btnComenzar" onclick="ocultarInicio();">Comenzar</span>
+            </div>
         </div>
-        <div class="boton-Start">
-            <span id="btnComenzar" onclick="ocultarInicio();">Comenzar</span>
+        <!--Pantalla de personajes-->
+        <div id="zonaPersonaje" class="contenerdor-seleccionPersonaje">
+            <div id="slotsPersonajes"></div>
+            <div id="primerPlayer"></div>
+            <div id="segundoPlayer"></div>
+            <div class="boton-Pelear">
+                <span id="btnPelear" onclick="ocultarSeleccion();">Pelear</span>
+            </div>
+        </div>
+        <!--Pantalla de Lucha-->
+        <div id="zonaDeLucha" class="contenedor-pelea">
+            <div id="barraVidaPrimerPlayer"></div>
+            <div id="barraVidaSegundoPlayer"></div>
+            <div id="btnAtacar1" onclick="calcularVidas(1,1);ocultarBoton();">
+                <span>Atacar</span>
+            </div>
+            <div id="btnAtacar2" onclick="calcularVidas(1,2);ocultarBoton();">
+                <span>Atacar</span>
+            </div>
+            <div id="cuadroLucha"></div>
+        </div>
+        <!--Pantalla de Victoria-->
+        <div id="zonaVictoria" class="contenedor-victoria">
+            <span id="mensajeVictoria"></span>
+            <div id="btnVolver" onclick="volverInicio();">
+                <span>Volver</span>
+            </div>
         </div>
     </div>
-    <!--Pantalla de personajes-->
-    <div id="zonaPersonaje" class="contenerdor-seleccionPersonaje">
-        <div id="slotsPersonajes"></div>
-        <div id="primerPlayer"></div>
-        <div id="segundoPlayer"></div>
-        <div class="boton-Pelear">
-            <span id="btnPelear" onclick="ocultarSeleccion();">Pelear</span>
-        </div>
-    </div>
-    <!--Pantalla de Lucha-->
-    <div id="zonaDeLucha" class="contenedor-pelea">
-        <div id="barraVidaPrimerPlayer"></div>
-        <div id="barraVidaSegundoPlayer"></div>
-        <div id="btnAtacar1" onclick="calcularVidas(1,1);ocultarBoton();">
-            <span>Atacar</span>
-        </div>
-        <div id="btnAtacar2" onclick="calcularVidas(1,2);ocultarBoton();">
-            <span>Atacar</span>
-        </div>
-        <div id="cuadroLucha"></div>
-    </div>
-    <div id="zonaVictoria" class="contenedor-victoria">
-        <span id="mensajeVictoria"></span>
-        <div id="btnVolver" onclick="volverInicio();">
-            <span>Volver</span>
-        </div>
-    </div>
+    
     
     <script src="js/main.js"></script>
 </body>
