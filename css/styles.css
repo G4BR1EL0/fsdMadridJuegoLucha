@@ -40,7 +40,7 @@
 /*#region PantallaSeleccion*/
 
 .seleccionPersonaje{
-    background-color: aqua;
+    background-color: blue;
 }
 .zona-superior{
     height: 6em;
@@ -54,7 +54,6 @@
 }
 .avatares{
     flex-direction: row;
-    background-color: aqua;
 }
 #btnPelear{
     font-weight: bold;
@@ -73,7 +72,7 @@
 .cuadroPersonaje:hover{
     width: 5.1em;
     height: 5.1em;
-    background-color: black;
+    background-color: white;
     margin: 0.1em;
 }
 #imglinea{

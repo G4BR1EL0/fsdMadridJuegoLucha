@@ -42,7 +42,7 @@ let ocultarSeleccion = () => {
 let ocultarLucha = (player) => {
     zonaLucha.style.display = 'none';
     zonaVictoria.style.display = 'flex';
-    document.getElementById('mensajeVictoria').innerHTML=`A ganado el Player${player}`;
+    document.getElementById('mensajeVictoria').innerHTML=`Player${player} wins!`;
 }
 
 let volverInicio = () => {
@@ -73,15 +73,10 @@ let seleccionarPersonaje= figura=>{
     }
     else if(segundoJugador.innerHTML==''){
         segundoJugador.innerHTML=html;
-        //TODO
-        //activar boton pelear y desactivar seleccion de personajes
     }
     else{
         console.log('algo a ido mal');
-    }
-    //activa el paso a pelea en cuando hayan dos personajes clicados
-    // element.classList.add("mystyle");
-    
+    }    
 }
 
 let calcularVidas = (attack,player) => {
@@ -123,7 +118,6 @@ let dibujarVida = (vida,player) => {
     }
     else{
         ocultarLucha(player);
-        //fin de juego
     }
 }
 
