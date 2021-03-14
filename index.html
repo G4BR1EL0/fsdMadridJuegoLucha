@@ -12,11 +12,12 @@
     <div class="contenedor">
         <!--Pantalla de Inicio-->
         <div id="zonaBienvenida" class="contenedor pantalla bienvenida">
-            <div class="mensaje-bienvenida">
-                <span>GEOMETRIC WARS</span>
+            <div class="contenedor mensaje-bienvenida">
+                <h1>GEOMETRIC</h1>
+                <h1>WARS</h1>
             </div>
-            <div class="boton-Start">
-                <span id="btnComenzar" onclick="ocultarInicio();">START</span>
+            <div class="boton-Start" onclick="ocultarInicio();">
+                <span id="btnComenzar">START</span>
             </div>
         </div>
         <!--Pantalla de personajes-->
@@ -36,6 +37,8 @@
         </div>
         <!--Pantalla de Lucha-->
         <div id="zonaDeLucha" class="contenedor pantalla pelea">
+            <div class="especioVertical"></div>
+            <div class="especioVertical"></div>
             <div class="contenedor espacio-barras-vida">
                 <div id="barraVidaPrimerPlayer" class="barra-vida"></div>
                 <div id="barraVidaSegundoPlayer" class="barra-vida"></div>
@@ -72,8 +75,8 @@
         </div>
         <!--Pantalla de Victoria-->
         <div id="zonaVictoria" class="contenedor pantalla victoria">
-            <span id="mensajeVictoria"></span>
-            <span class="game-over">GAME OVER</span>
+            <h2 id="mensajeVictoria"></h2>
+            <h1 class="game-over">GAME OVER</h1>
             <div id="btnVolver" class="contenedor" onclick="volverInicio();">
                 <span>Return</span>
             </div>

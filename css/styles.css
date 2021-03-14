@@ -38,7 +38,26 @@
 .bienvenida{
     background-color: red;
 }
-
+.mensaje-bienvenida{
+    width: 20em;
+    transition: background-color 1s linear;
+}
+.mensaje-bienvenida:hover{
+    background-color: black;
+    color: red;
+}
+.boton-Start{
+    width: 8em;
+    height: 3em;
+    border-radius: 1em;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    background-color: black;
+    color: red;
+    cursor: pointer;
+}
 /*#endregion*/
 
 /*Pantalla Seleccion Personaje*/
@@ -285,14 +304,15 @@
 /*#region PantallaVictoria*/
 
 .victoria{
-    background-color: yellow;
+    background-color: black;
+    color: white;
 }
 .mensajeGanador{
     font-weight: bolder;
     font-size: 4em;
 }
 #btnVolver{
-    height: 4em;
+    height: 3em;
     width: 8em;
     border-radius: 1em;
     background-color: grey;

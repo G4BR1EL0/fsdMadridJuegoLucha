@@ -36,7 +36,7 @@ const PRECISIONATAQUEPESADO = 5;
 //#region cambioPantalla
 let ocultarInicio = () => {
     zonaInicio.style.display = "none";
-    zonaPersonaje.style.display = "flex";
+    fadeIn(zonaPersonaje,800);
     dibujarAvatares();
 }
 
@@ -45,7 +45,7 @@ let ocultarSeleccion = () => {
     let segundoAvatar=document.getElementById('segundoPlayer');
     if(primerAvatar.innerHTML!=='' && segundoAvatar.innerHTML!=''){
         zonaPersonaje.style.display = 'none';
-        zonaLucha.style.display = 'flex';
+        fadeIn(zonaLucha);
         document.getElementById('cuadroLucha').innerHTML=primerAvatar.innerHTML+segundoAvatar.innerHTML;   
         dibujarVida(primerAvatarElegido.life,PLAYER1);    
         dibujarVida(segundoAvatarElegido.life,PLAYER2); 
@@ -57,7 +57,7 @@ let ocultarSeleccion = () => {
 
 let ocultarLucha = (player) => {
     zonaLucha.style.display = 'none';
-    zonaVictoria.style.display = 'flex';
+    fadeIn(zonaVictoria);
     document.getElementById('mensajeVictoria').innerHTML=`Player${player} wins!`;
 }
 
@@ -69,7 +69,7 @@ let volverInicio = () => {
     primerJugador.innerHTML='';
     segundoJugador.innerHTML='';
     zonaVictoria.style.display = 'none';
-    zonaInicio.style.display = 'flex';
+    fadeIn(zonaInicio);
     document.getElementById('comandosPlayer2').style.display='none';
     document.getElementById('comandosPlayer1').style.display='flex';
     document.getElementById('mensajeAtaque').innerHTML='';
@@ -217,3 +217,17 @@ let ocultarBoton = () => {
         actualizarIndicadorPlayer(PLAYER2);
     }
 };
+
+let fadeIn = (element, duration = 600) => {
+    element.style.display = '';
+    element.style.opacity = 0;
+    let last = +new Date();
+    let tick = function() {
+      element.style.opacity = +element.style.opacity + (new Date() - last) / duration;
+      last = +new Date();
+      if (+element.style.opacity < 1) {
+        (window.requestAnimationFrame && requestAnimationFrame(tick)) || setTimeout(tick, 16);
+      }
+    };
+    tick();
+  }
