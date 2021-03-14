@@ -15,11 +15,16 @@
     justify-content: space-around;
     align-items: center;
     font-family: Pixelado;
+    border-radius: 1em;
 }
 .pantalla{
     width: 50em;
     height: 40em;
     margin-top: 2em;
+}
+.especioVertical{
+    width: 100%;
+    height: 1em;
 }
 /*#endregion*/
 
@@ -43,7 +48,7 @@
     background-color: blue;
 }
 .zona-superior{
-    height: 6em;
+    height: 10em;
 }
 .zona-media{
     height: 24em;
@@ -61,7 +66,7 @@
 }
 .cuadroPersonaje{
     width: 5em;
-    height: 5em;
+    height: 7em;
     background-color: blue;
     margin: 0.1em;
     display: flex;
@@ -70,8 +75,6 @@
     align-items: center;
 }
 .cuadroPersonaje:hover{
-    width: 5.1em;
-    height: 5.1em;
     background-color: white;
     margin: 0.1em;
 }
@@ -139,7 +142,7 @@
     position: absolute;
     height: 0;
     width: 0;
-    top: -5.4em;
+    top: -5.3em;
     left: -1.4em;
     border-width: 0 3.1em 2em;
     border-style: solid;
@@ -233,18 +236,31 @@
     flex-direction: row;
 }
 .hitPoint{
-    width: 0.8em;
+    width: 0.3em;
     height: 1.8em;
     margin: 0.1em;
     background-color: lawngreen;
 }
 .espacio-avatares{
     flex-direction: row;
+    height: 28em;
 }
-#btnAtacar1{
+.espacio-comandos{
+    flex-direction: row;
+    height: 100%;
+    border: gray solid 0.2em;
+    box-sizing:border-box;
+}
+.cuadro-ataques{
+    height: 100%;
     width: 10em;
-    height: 4em;
-    background-color: red;
+    border-radius: 1em;
+    border-right: solid gray 0.05em;
+    border-left: solid gray 0.05em;
+}
+.btnAttack{
+    width: 10em;
+    height: 3em;
     font-weight: bolder;
     display: flex;
     flex-direction: column;
@@ -253,17 +269,15 @@
     cursor: pointer;
     margin: 0.1em;
 }
-#btnAtacar2{
-    width: 10em;
-    height: 4em;
-    background-color: blue;
-    font-weight: bolder;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
-    cursor: pointer;
-    margin: 0.1em;
+.btnAttack:hover{
+    background-color: gray;
+    color: green;
+}
+.cuadro-mensajes{
+    width: 100%;
+}
+.letraPequenia{
+    font-size: 0.7em;
 }
 /*#endregion*/
 
@@ -271,15 +285,16 @@
 /*#region PantallaVictoria*/
 
 .victoria{
-    background-color: white;
+    background-color: yellow;
 }
 .mensajeGanador{
     font-weight: bolder;
     font-size: 4em;
 }
 #btnVolver{
-    height: 10em;
-    width: 10em;
+    height: 4em;
+    width: 8em;
+    border-radius: 1em;
     background-color: grey;
     color: black;
     cursor: pointer;

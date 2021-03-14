@@ -43,13 +43,33 @@
             <div class="contenedor">
                 <div id="cuadroLucha" class="contenedor espacio-avatares"></div>
             </div>
-            <div class="espacio-comandos">
-                <div id="btnAtacar1" onclick="calcularVidas(1,1);ocultarBoton();">
-                    <span>Atacar</span>
+            <span id="indicadorPlayer"></span>
+            <div class="contenedor espacio-comandos">
+                <div id="comandosPlayer1" class="contenedor cuadro-ataques">
+                    <div id="btnAtacar1" onclick="calcularVidas(1,1);ocultarBoton();" class="btnAttack">
+                        <span>Fast Attack</span>
+                        <span class="letraPequenia">acuracy++, damage-</span>
+                    </div>
+                        <div class="especioVertical"></div>
+                    <div id="btnAtaquePesado1" onclick="calcularVidas(2,1);ocultarBoton();" class="btnAttack">
+                        <span>Heavy Attack</span>
+                        <span class="letraPequenia">acuracy-, damage++</span>
+                    </div>                    
                 </div>
-                <div id="btnAtacar2" onclick="calcularVidas(1,2);ocultarBoton();">
-                    <span>Atacar</span>
+                <div id="mensajeAtaque" class="contenedor cuadro-mensajes"></div>
+                <div id="comandosPlayer2" class="contenedor cuadro-ataques">
+                    <div id="btnAtacar2" onclick="calcularVidas(1,2);ocultarBoton();" class="btnAttack">
+                        <span>Fast Attack</span>
+                        <span class="letraPequenia">acuracy++, damage-</span>
+                    </div>
+                    <div class="especioVertical"></div>
+                    <div id="btnAtaquePesado2" onclick="calcularVidas(2,2);ocultarBoton();" class="btnAttack">
+                        <span>Heavy Attack</span>
+                        <span class="letraPequenia">acuracy-, damage++</span>
+                    </div>
+                    </div>
                 </div>
+                
             </div>
         </div>
         <!--Pantalla de Victoria-->

@@ -1,8 +1,13 @@
 /* estado Inicial*/
-let arrPersonajes=['linea','triangulo','cuadrado','pentagono','hexagono','circulo'];
-let vidaPrimerPlayer=10;
-let vidaSegundoPlayer=10;
-const MAXVIDA=10;
+const arrPersonajes=[{name:'linea', life :8, evasion:7},
+                     {name:'triangulo', life:12, evasion:6},
+                     {name:'pentagono', life:14, evasion:5},
+                     {name:'cuadrado', life:20, evasion:1},
+                     {name:'hexagono', life:16, evasion:3},
+                     {name:'circulo', life:15, evasion:4}];
+let vidaPrimerPlayer=0;
+let vidaSegundoPlayer=0;
+const MAXVIDA=5;
 const PLAYER1=1;
 const PLAYER2=2;
 let primerJugador=document.getElementById('primerPlayer');
@@ -17,6 +22,10 @@ zonaVictoria.style.display = 'none';
 let btnDos = document.getElementById('btnAtacar2');
 btnDos.style.display='none';
 let btnUno = document.getElementById('btnAtacar1');
+let primerAvatarElegido;
+let segundoAvatarElegido;
+const PRECISIONATAQUERAPIDO=8;
+const PRECISIONATAQUEPESADO=5;
 
 
 /*funciones cambio de pantalla*/
@@ -25,17 +34,23 @@ let btnUno = document.getElementById('btnAtacar1');
 let ocultarInicio = () => {
     zonaInicio.style.display = "none";
     zonaPersonaje.style.display = "flex";
+    dibujarAvatares();
 }
 
 let ocultarSeleccion = () => {
-    let primerJugador=document.getElementById('primerPlayer');
-    let segundoJugador=document.getElementById('segundoPlayer');
-    if(primerJugador.innerHTML!=='' && segundoJugador.innerHTML!=''){
+    let primerAvatar=document.getElementById('primerPlayer');
+    let segundoAvatar=document.getElementById('segundoPlayer');
+    if(primerAvatar.innerHTML!=='' && segundoAvatar.innerHTML!=''){
         zonaPersonaje.style.display = 'none';
         zonaLucha.style.display = 'flex';
-        document.getElementById('cuadroLucha').innerHTML=primerJugador.innerHTML+segundoJugador.innerHTML;    
-        dibujarVida(MAXVIDA,PLAYER1);    
-        dibujarVida(MAXVIDA,PLAYER2);    
+        document.getElementById('cuadroLucha').innerHTML=primerAvatar.innerHTML+segundoAvatar.innerHTML;   
+        //obtener vida por player de acuerdo a los avatares elegidos
+
+        dibujarVida(primerAvatarElegido.life,PLAYER1);    
+        dibujarVida(segundoAvatarElegido.life,PLAYER2); 
+        vidaPrimerPlayer = primerAvatarElegido.life;
+        vidaSegundoPlayer = segundoAvatarElegido.life;
+        actualizarIndicadorPlayer(PLAYER1);  
     }    
 }
 
@@ -46,70 +61,125 @@ let ocultarLucha = (player) => {
 }
 
 let volverInicio = () => {
-    vidaPrimerPlayer=10;
-    vidaSegundoPlayer=10;
+    vidaPrimerPlayer=MAXVIDA;
+    vidaSegundoPlayer=MAXVIDA;
     btnDos.style.display='none';
     btnUno.style.display= 'flex';
     primerJugador.innerHTML='';
     segundoJugador.innerHTML='';
     zonaVictoria.style.display = 'none';
     zonaInicio.style.display = 'flex';
+    document.getElementById('comandosPlayer2').style.display='none';
+    document.getElementById('comandosPlayer1').style.display='flex';
+    document.getElementById('mensajeAtaque').innerHTML='';
 }
 //#endregion
 
-let htmlPersonajes='';
-arrPersonajes.forEach(e => {    
-    htmlPersonajes= 
-        htmlPersonajes+`<div id="${e}" onclick='seleccionarPersonaje(this)' class='cuadroPersonaje'>
-        <div id="img${e}"></div></div>`;
-});
-document.getElementById("slotsPersonajes").innerHTML=htmlPersonajes;
+let dibujarAvatares = () =>{
+    let htmlPersonajes='';
+    arrPersonajes.forEach(e => {    
+        htmlPersonajes= 
+            htmlPersonajes+
+                `<div id="${e.name}" onclick='seleccionarPersonaje(this)' class='cuadroPersonaje'>
+                    <div id="img${e.name}"></div>
+                    <div>Life:${e.life}</div>
+                    <div>Evasion:${e.evasion}</div>
+                </div>                
+                `;
+    });
+    document.getElementById("slotsPersonajes").innerHTML=htmlPersonajes;
+};
 
-let seleccionarPersonaje= figura=>{    
+let actualizarIndicadorPlayer = (player) => {
+    document.getElementById('indicadorPlayer').innerHTML=`Player${player}`;
+};
+
+let seleccionarPersonaje = figura => {    
     let clase='img'+figura.id+'-grande';
-    let html=`<div class='${clase}'></div>`
+    let html=`<div class='${clase}'></div>`;
     if(primerJugador.innerHTML==''){
         primerJugador.innerHTML=html;
+        arrPersonajes.forEach(e => {if(e.name==figura.id) primerAvatarElegido=e;});
     }
     else if(segundoJugador.innerHTML==''){
         segundoJugador.innerHTML=html;
+        arrPersonajes.forEach(e => {if(e.name==figura.id) segundoAvatarElegido=e;});
     }
     else{
         console.log('algo a ido mal');
     }    
-}
+};
 
 let calcularVidas = (attack,player) => {
-    if(player === 1){
+    let dado1=Math.floor(Math.random()*10);
+    let dado2=Math.floor(Math.random()*10);
+    if(player === PLAYER1){
+        let evasion=segundoAvatarElegido.evasion;
         if(attack === 1){
-            vidaSegundoPlayer--;
-            dibujarVida(vidaSegundoPlayer,player);
-        }
-        else{
-            //segundo ataque
+            if(dado1<=PRECISIONATAQUERAPIDO){
+                if(dado2<evasion){
+                    document.getElementById('mensajeAtaque').innerHTML='Player 2 EVADES!!';
+                }else{
+                    document.getElementById('mensajeAtaque').innerHTML='Player 1 HITS!!';
+                    vidaSegundoPlayer--;
+                }                
+            }else{
+                document.getElementById('mensajeAtaque').innerHTML='Atack MISS!!';
+            }            
+            dibujarVida(vidaSegundoPlayer,PLAYER2);
+        }else{
+            if(dado1<=PRECISIONATAQUEPESADO){
+                if(dado2<evasion){
+                    document.getElementById('mensajeAtaque').innerHTML='Player 2 EVADES!!';
+                }else{
+                    document.getElementById('mensajeAtaque').innerHTML='Player 1 HITS!!';
+                    vidaSegundoPlayer-=3;
+                }                
+            }else{
+                document.getElementById('mensajeAtaque').innerHTML='Atack MISS!!';
+            }            
+            dibujarVida(vidaSegundoPlayer,PLAYER2);
         }
     }
     else{
+        let evasion=primerAvatarElegido.evasion;
         if(attack === 1){
-            vidaPrimerPlayer--;
-            dibujarVida(vidaPrimerPlayer,player);
-        }
-        else{
-            //segundo ataque
+            if(dado1<=PRECISIONATAQUERAPIDO){
+                if(dado2<evasion){
+                    document.getElementById('mensajeAtaque').innerHTML='Player 1 EVADES!!';
+                }else{
+                    document.getElementById('mensajeAtaque').innerHTML='Player 2 HITS!!';
+                    vidaPrimerPlayer--;
+                }                
+            }else{
+                document.getElementById('mensajeAtaque').innerHTML='Atack MISS!!';
+            } 
+            dibujarVida(vidaPrimerPlayer,PLAYER1);
+        }else{
+            if(dado1<=PRECISIONATAQUEPESADO){
+                if(dado2<evasion){
+                    document.getElementById('mensajeAtaque').innerHTML='Player 1 EVADES!!';
+                }else{
+                    document.getElementById('mensajeAtaque').innerHTML='Player 2 HITS!!';
+                    vidaPrimerPlayer-=3;
+                }                
+            }else{
+                document.getElementById('mensajeAtaque').innerHTML='Atack MISS!!';
+            } 
+            dibujarVida(vidaPrimerPlayer,PLAYER1);
         }
     }
-}
+};
 
 let dibujarVida = (vida,player) => {    
     if(vida>0){
         let barraVida;
-        if(player!=PLAYER1){
+        if(player==PLAYER1){
             barraVida=document.getElementById('barraVidaPrimerPlayer');
         }
         else{
             barraVida=document.getElementById('barraVidaSegundoPlayer');
         }
-
         let html='';
         for(let i = 0; i < vida; i++){
             html += `<div class='hitPoint'></div>`;
@@ -117,16 +187,28 @@ let dibujarVida = (vida,player) => {
         barraVida.innerHTML=html;
     }
     else{
-        ocultarLucha(player);
+        if(player==PLAYER1){
+            ocultarLucha(PLAYER2);
+        }
+        else{
+            ocultarLucha(PLAYER1);
+        }
+        
     }
-}
+};
 
 let ocultarBoton = () => {
     if (btnUno.style.display === 'none'){
+        document.getElementById('comandosPlayer2').style.display='none';
+        document.getElementById('comandosPlayer1').style.display='flex';
         btnUno.style.display= 'flex';
         btnDos.style.display= 'none';
+        actualizarIndicadorPlayer(PLAYER1);
     }else{
+        document.getElementById('comandosPlayer1').style.display='none';
+        document.getElementById('comandosPlayer2').style.display='flex';
         btnUno.style.display= 'none';
         btnDos.style.display= 'flex';
+        actualizarIndicadorPlayer(PLAYER2);
     }
-} 
+};
