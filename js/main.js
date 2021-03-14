@@ -24,7 +24,7 @@ let btnUno = document.getElementById('btnAtacar1');
 //#region cambioPantalla
 let ocultarInicio = () => {
     zonaInicio.style.display = "none";
-    zonaPersonaje.style.display = "block";
+    zonaPersonaje.style.display = "flex";
 }
 
 let ocultarSeleccion = () => {
@@ -32,7 +32,7 @@ let ocultarSeleccion = () => {
     let segundoJugador=document.getElementById('segundoPlayer');
     if(primerJugador.innerHTML!=='' && segundoJugador.innerHTML!=''){
         zonaPersonaje.style.display = 'none';
-        zonaLucha.style.display = 'block';
+        zonaLucha.style.display = 'flex';
         document.getElementById('cuadroLucha').innerHTML=primerJugador.innerHTML+segundoJugador.innerHTML;    
         dibujarVida(MAXVIDA,PLAYER1);    
         dibujarVida(MAXVIDA,PLAYER2);    
@@ -41,7 +41,7 @@ let ocultarSeleccion = () => {
 
 let ocultarLucha = (player) => {
     zonaLucha.style.display = 'none';
-    zonaVictoria.style.display = 'block';
+    zonaVictoria.style.display = 'flex';
     document.getElementById('mensajeVictoria').innerHTML=`A ganado el Player${player}`;
 }
 
@@ -53,7 +53,7 @@ let volverInicio = () => {
     primerJugador.innerHTML='';
     segundoJugador.innerHTML='';
     zonaVictoria.style.display = 'none';
-    zonaInicio.style.display = 'block';
+    zonaInicio.style.display = 'flex';
 }
 //#endregion
 

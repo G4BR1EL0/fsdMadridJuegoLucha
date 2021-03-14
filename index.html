@@ -11,7 +11,7 @@
 <body>
     <div class="contenedor">
         <!--Pantalla de Inicio-->
-        <div id="zonaBienvenida" class="contenedor-bienvenida">
+        <div id="zonaBienvenida" class="contenedor pantalla bienvenida">
             <div class="mensaje-bienvenida">
                 <span>Bienvenido a guerras geométricas</span>
             </div>
@@ -20,30 +20,42 @@
             </div>
         </div>
         <!--Pantalla de personajes-->
-        <div id="zonaPersonaje" class="contenerdor-seleccionPersonaje">
-            <div id="slotsPersonajes"></div>
-            <div id="primerPlayer"></div>
-            <div id="segundoPlayer"></div>
-            <div class="boton-Pelear">
-                <span id="btnPelear" onclick="ocultarSeleccion();">Pelear</span>
+        <div id="zonaPersonaje" class="contenedor pantalla seleccionPersonaje">
+            <div class="contenedor zona-superior">
+                <div id="slotsPersonajes" class="contenedor avatares"></div>
+            </div>
+            <div class="contenedor zona-media">
+                <div id="primerPlayer"></div>
+                <div id="segundoPlayer"></div>
+            </div>
+            <div class="contenedor zona-inferior">
+                <div class="boton-Pelear">
+                    <span id="btnPelear" onclick="ocultarSeleccion();">Pelear</span>
+                </div>
             </div>
         </div>
         <!--Pantalla de Lucha-->
-        <div id="zonaDeLucha" class="contenedor-pelea">
-            <div id="barraVidaPrimerPlayer"></div>
-            <div id="barraVidaSegundoPlayer"></div>
-            <div id="btnAtacar1" onclick="calcularVidas(1,1);ocultarBoton();">
-                <span>Atacar</span>
+        <div id="zonaDeLucha" class="contenedor pantalla pelea">
+            <div class="contenedor espacio-barras-vida">
+                <div id="barraVidaPrimerPlayer" class="barra-vida"></div>
+                <div id="barraVidaSegundoPlayer" class="barra-vida"></div>
             </div>
-            <div id="btnAtacar2" onclick="calcularVidas(1,2);ocultarBoton();">
-                <span>Atacar</span>
+            <div class="contenedor">
+                <div id="cuadroLucha" class="contenedor espacio-avatares"></div>
             </div>
-            <div id="cuadroLucha"></div>
+            <div class="espacio-comandos">
+                <div id="btnAtacar1" onclick="calcularVidas(1,1);ocultarBoton();">
+                    <span>Atacar</span>
+                </div>
+                <div id="btnAtacar2" onclick="calcularVidas(1,2);ocultarBoton();">
+                    <span>Atacar</span>
+                </div>
+            </div>
         </div>
         <!--Pantalla de Victoria-->
-        <div id="zonaVictoria" class="contenedor-victoria">
+        <div id="zonaVictoria" class="contenedor pantalla victoria">
             <span id="mensajeVictoria"></span>
-            <div id="btnVolver" onclick="volverInicio();">
+            <div id="btnVolver" class="contenedor" onclick="volverInicio();">
                 <span>Volver</span>
             </div>
         </div>

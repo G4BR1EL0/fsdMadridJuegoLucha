@@ -4,7 +4,7 @@
     font-family: Pixelado;
     src: url(../fonts/Minecraft.ttf);
 }
-/*#endregion*
+/*#endregion*/
 
 /*Contenedor Global*/
 /*#region Contenedor*/
@@ -16,6 +16,11 @@
     align-items: center;
     font-family: Pixelado;
 }
+.pantalla{
+    width: 50em;
+    height: 40em;
+    margin-top: 2em;
+}
 /*#endregion*/
 
 /*Pantalla Inicio*/
@@ -25,9 +30,7 @@
     font-weight: bold;
     cursor:pointer;
 }
-.contenedor-bienvenida{
-    width: 50em;
-    height: 50em;
+.bienvenida{
     background-color: red;
 }
 
@@ -36,9 +39,21 @@
 /*Pantalla Seleccion Personaje*/
 /*#region PantallaSeleccion*/
 
-.contenerdor-seleccionPersonaje{
-    width: 50em;
-    height: 50em;
+.seleccionPersonaje{
+    background-color: aqua;
+}
+.zona-superior{
+    height: 6em;
+}
+.zona-media{
+    height: 24em;
+}
+.zona-inferior{
+    width: 100%;
+    height: 10em;
+}
+.avatares{
+    flex-direction: row;
     background-color: aqua;
 }
 #btnPelear{
@@ -204,24 +219,17 @@
 /*Pantalla Lucha*/
 /*#region PantallaLucha*/
 
-.contenedor-pelea{    
-    width: 50em;
-    height: 50em;
+.pelea{
     background-color: green;
 }
-#barraVidaPrimerPlayer{
-    width: 10em;
-    height: 2em;
-    margin: 0.1em;
-    background-color: greenyellow;
-    display: flex;
+.espacio-barras-vida{
     flex-direction: row;
 }
-#barraVidaSegundoPlayer{
+.barra-vida{
     width: 10em;
     height: 2em;
     margin: 0.1em;
-    background-color: greenyellow;
+    background-color: grey;
     display: flex;
     flex-direction: row;
 }
@@ -229,7 +237,10 @@
     width: 0.8em;
     height: 1.8em;
     margin: 0.1em;
-    background-color: grey;
+    background-color: lawngreen;
+}
+.espacio-avatares{
+    flex-direction: row;
 }
 #btnAtacar1{
     width: 10em;
@@ -260,14 +271,8 @@
 /*Pantalla Victoria*/
 /*#region PantallaVictoria*/
 
-.contenedor-victoria{
-    width: 50em;
-    height: 50em;
-    background-color: yellow;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
+.victoria{
+    background-color: white;
 }
 .mensajeGanador{
     font-weight: bolder;
@@ -276,7 +281,8 @@
 #btnVolver{
     height: 10em;
     width: 10em;
-    background-color: azure;
+    background-color: grey;
     color: black;
+    cursor: pointer;
 }
 /*#endregion*/
