@@ -10,26 +10,29 @@ let vidaSegundoPlayer=0;
 const MAXVIDA=5;
 const PLAYER1=1;
 const PLAYER2=2;
-let primerJugador=document.getElementById('primerPlayer');
-let segundoJugador=document.getElementById('segundoPlayer');
-const zonaInicio=document.getElementById("zonaBienvenida");
-const zonaPersonaje=document.getElementById("zonaPersonaje");
+let primerJugador = document.getElementById('primerPlayer');
+let segundoJugador = document.getElementById('segundoPlayer');
+const zonaInicio = document.getElementById("zonaBienvenida");
+const zonaPersonaje = document.getElementById("zonaPersonaje");
 zonaPersonaje.style.display = 'none';
-const zonaLucha=document.getElementById("zonaDeLucha");
+const zonaLucha = document.getElementById("zonaDeLucha");
 zonaLucha.style.display = 'none';
-const zonaVictoria=document.getElementById("zonaVictoria");
+const zonaVictoria = document.getElementById("zonaVictoria");
 zonaVictoria.style.display = 'none';
 let btnDos = document.getElementById('btnAtacar2');
-btnDos.style.display='none';
+btnDos.style.display = 'none';
 let btnUno = document.getElementById('btnAtacar1');
+let btnUnoPesado = document.getElementById('btnAtaquePesado1');
+let btnDosPesado = document.getElementById('btnAtaquePesado2');
+btnDosPesado.style.display = 'none';
+document.getElementById('comandosPlayer2').style.display='none'
 let primerAvatarElegido;
 let segundoAvatarElegido;
-const PRECISIONATAQUERAPIDO=8;
-const PRECISIONATAQUEPESADO=5;
+const PRECISIONATAQUERAPIDO = 8;
+const PRECISIONATAQUEPESADO = 5;
 
 
 /*funciones cambio de pantalla*/
-
 //#region cambioPantalla
 let ocultarInicio = () => {
     zonaInicio.style.display = "none";
@@ -44,8 +47,6 @@ let ocultarSeleccion = () => {
         zonaPersonaje.style.display = 'none';
         zonaLucha.style.display = 'flex';
         document.getElementById('cuadroLucha').innerHTML=primerAvatar.innerHTML+segundoAvatar.innerHTML;   
-        //obtener vida por player de acuerdo a los avatares elegidos
-
         dibujarVida(primerAvatarElegido.life,PLAYER1);    
         dibujarVida(segundoAvatarElegido.life,PLAYER2); 
         vidaPrimerPlayer = primerAvatarElegido.life;
@@ -203,12 +204,16 @@ let ocultarBoton = () => {
         document.getElementById('comandosPlayer1').style.display='flex';
         btnUno.style.display= 'flex';
         btnDos.style.display= 'none';
+        btnUnoPesado.style.display= 'flex';
+        btnDosPesado.style.display= 'none';
         actualizarIndicadorPlayer(PLAYER1);
     }else{
         document.getElementById('comandosPlayer1').style.display='none';
         document.getElementById('comandosPlayer2').style.display='flex';
         btnUno.style.display= 'none';
         btnDos.style.display= 'flex';
+        btnUnoPesado.style.display= 'none';
+        btnDosPesado.style.display= 'flex';
         actualizarIndicadorPlayer(PLAYER2);
     }
 };
